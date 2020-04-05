@@ -12,5 +12,6 @@ namespace ExperiencePerkFix
 
         public int CombatTipsXpAmount { get; set; }
         public int RaiseTheMeekXpAmount { get; set; }
+        public float GarrisonTrainingXpMultiplier { get; set; }
     }
 }

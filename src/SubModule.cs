@@ -14,7 +14,11 @@ namespace ExperiencePerkFix
 
 		private void AddBehaviours(CampaignGameStarter gameStarterObject)
 		{
-			gameStarterObject.AddBehavior(new MobilePartyDailyTickBehaviour());
+			if (gameStarterObject != null)
+			{
+				gameStarterObject.AddBehavior(new MobilePartyDailyTickBehaviour());
+				gameStarterObject.AddBehavior(new TownDailyTickBehaviour());
+			}
 		}
 
 	}
