@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+	<!-- Note that setting these values below native causes a known issue -->
+	<CombatTipsXpAmount>30</CombatTipsXpAmount> <!-- Native value is 10 -->
+	<RaiseTheMeekXpAmount>90</RaiseTheMeekXpAmount> <!-- Native value is 30 -->
+</Config>
