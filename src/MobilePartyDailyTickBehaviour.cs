@@ -26,7 +26,7 @@ namespace ExperiencePerkFix
                 for (int i = 0; i < party.MemberRoster.Count; i++)
                 {
                     TroopRosterElement troopElement = party.MemberRoster.GetElementCopyAtIndex(i);
-                    int totalTroopXp = 10 * troopElement.Number;
+                    int totalTroopXp = ConfigLoader.Instance.Config.CombatTipsXpAmount * troopElement.Number;
 
                     //Remove the default added xp
                     totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.CombatTips);
