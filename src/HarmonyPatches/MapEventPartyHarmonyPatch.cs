@@ -10,7 +10,7 @@ using TaleWorlds.CampaignSystem;
 namespace TyniBannerlordFixes
 {
     [HarmonyPatch(typeof(MapEventParty), "CommitXpGain")]
-    public class MapEventSideHarmonyPatch
+    public class MapEventPartyHarmonyPatch
     {
         static bool Prefix(MapEventParty __instance)
         {
