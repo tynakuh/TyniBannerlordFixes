@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Module>
-	<Name value = "ExperiencePerkFix"/>
-	<Id value = "ExperiencePerkFix"/>
-	<Version value = "v1.0.0"/>
+	<Name value = "TyniBannerlordFixes"/>
+	<Id value = "TyniBannerlordFixes"/>
+	<Version value = "v1.3.0"/>
 	<DefaultModule value="false"/>
 	<SingleplayerModule value="true"/>
 	<MultiplayerModule value="false"/>
@@ -16,9 +16,9 @@
 	</DependedModules>
 	<SubModules>
 		<SubModule>
-			<Name value = "ExperiencePerkFix"/>
-			<DLLName value = "ExperiencePerkFix.dll"/>
-			<SubModuleClassType value="ExperiencePerkFix.SubModule"/>
+			<Name value = "TyniBannerlordFixes"/>
+			<DLLName value = "TyniBannerlordFixes.dll"/>
+			<SubModuleClassType value="TyniBannerlordFixes.SubModule"/>
 			<Tags>
 				<Tag key="DedicatedServerType" value="none"/>
 				<Tag key="IsNoRenderModeElement" value="false"/>

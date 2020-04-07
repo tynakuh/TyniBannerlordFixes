@@ -1,10 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 
-namespace ExperiencePerkFix
+namespace TyniBannerlordFixes
 {
     class ConfigLoader
     {
@@ -26,7 +27,7 @@ namespace ExperiencePerkFix
 
         private ConfigLoader()
         {
-            string path = Path.Combine(BasePath.Name, "Modules", "ExperiencePerkFix","ModuleData", "config.xml");
+            string path = Path.Combine(BasePath.Name, "Modules", "TyniBannerlordFixes","ModuleData", "config.xml");
             Config = getConfig(path);
         }
 
@@ -42,7 +43,7 @@ namespace ExperiencePerkFix
             }
             catch(Exception e)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Failed to load config, using default native values due to: " + e.Message));
+                MessageBox.Show("Failed to load config, using default native values due to: " + Utils.FlattenException(e));
                 Config config = new Config();
                 config.RaiseTheMeekXpAmount = 30;
                 config.CombatTipsXpAmount = 10;

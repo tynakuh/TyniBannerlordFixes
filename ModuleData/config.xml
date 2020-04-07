@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Config>
-	<!-- Note that setting these values below native causes a known issue -->
+	<!-- Daily Experience -->	
+	<!-- XP given per day to each unit for Combat Tips -->
 	<CombatTipsXpAmount>30</CombatTipsXpAmount> <!-- Native value is 10 -->
+	<!-- XP given per day to each unit for Raise The Meek -->
 	<RaiseTheMeekXpAmount>90</RaiseTheMeekXpAmount> <!-- Native value is 30 -->
+	<!-- XP for any ready to upgrade troops is NOT given to the stack -->
+	<ScaleByReadyToUpgrade>false</ScaleByReadyToUpgrade>
+	<!-- Multiplier for amount of troop xp given by training fields, stacks ontop of Drill Master, i.e 4 * 1.2 * 2.0 = 10 per day (gets rounded) -->
+	<GarrisonTrainingXpMultiplier>2.0</GarrisonTrainingXpMultiplier> 
+	
+	<!-- Daily Prisoner Recruitment -->
+	
+	<!-- Determines the probability of recruitment by tier range is 0-1 (0%-100%) -->
+	<DailyRecruitmentProbabilitiesByTier>1.0,0.5,0.3,0.2,0.1,0.0</DailyRecruitmentProbabilitiesByTier> <!-- These are native values -->
+	<!-- Each time you get a 'successful' recruit, the probability is lowered by this amount -->
+	<DailyRecruitmentProbabilitiesByTierDecay>0.3,0.2,0.15,0.1,0.05,1.0</DailyRecruitmentProbabilitiesByTierDecay> <!-- Native values are all 1.0 -->
+	
+	<!-- With default values above, this means a max of the following per day, with more units in the stack improving probabilties of hitting this max:
+		 Tier 1:  4 max.
+		 Tier 2:  3 max.
+		 Tier 3:  2 max.
+		 Tier 4:  2 max.
+		 Tier 5:  2 max.
+		 Tier 6:  0 max.
+		 
+		 NOTE: This Tier limitation applies across ALL units i.e. If you have 50 Tier 1 units, 20 looters, 30 recruits.
+		 Its likely each day you'll have 5 recruits ready to recruit but 0 looters or vice versa, we randomly start at a different unit each day.
+	-->
+	
+	<!-- Remove any ready to recruit prisoners from the 'stack size' during daily recruitment checks -->
+	<ScaleByReadyToRecruit>true</ScaleByReadyToRecruit> <!-- This will encourage recruiting prisoners as any 'ready to recruit' prisoners will NOT be counted to the stack size -->
 </Config>

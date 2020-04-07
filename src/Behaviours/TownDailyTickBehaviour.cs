@@ -3,7 +3,7 @@ using System;
 using TaleWorlds.Localization;
 using TaleWorlds.Core;
 
-namespace ExperiencePerkFix
+namespace TyniBannerlordFixes
 {
     class TownDailyTickBehaviour : CampaignBehaviorBase
     {

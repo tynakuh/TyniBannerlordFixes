@@ -1,7 +1,7 @@
 ﻿using TaleWorlds.CampaignSystem;
 using System;
 
-namespace ExperiencePerkFix
+namespace TyniBannerlordFixes
 {
     class MobilePartyDailyTickBehaviour : CampaignBehaviorBase
     {
@@ -26,7 +26,12 @@ namespace ExperiencePerkFix
                 for (int i = 0; i < party.MemberRoster.Count; i++)
                 {
                     TroopRosterElement troopElement = party.MemberRoster.GetElementCopyAtIndex(i);
-                    int totalTroopXp = ConfigLoader.Instance.Config.CombatTipsXpAmount * troopElement.Number;
+                    int troopMultiplier = troopElement.Number;
+                    if(ConfigLoader.Instance.Config.ScaleByReadyToUpgrade)
+                    {
+                        troopMultiplier -= troopElement.NumberReadyToUpgrade;
+                    }
+                    int totalTroopXp = ConfigLoader.Instance.Config.CombatTipsXpAmount * troopMultiplier;
 
                     //Remove the default added xp
                     totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.CombatTips);
