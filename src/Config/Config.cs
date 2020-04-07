@@ -18,5 +18,6 @@ namespace TyniBannerlordFixes
         public string DailyRecruitmentProbabilitiesByTier { get; set; }
         public bool ScaleByReadyToRecruit { get; set; }
         public bool ScaleByReadyToUpgrade { get; set; }
+        public float MountedFootmenSpeedMultiplier { get; set; }
     }
 }
