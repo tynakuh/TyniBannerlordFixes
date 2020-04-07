@@ -31,4 +31,7 @@
 	
 	<!-- Remove any ready to recruit prisoners from the 'stack size' during daily recruitment checks -->
 	<ScaleByReadyToRecruit>true</ScaleByReadyToRecruit> <!-- This will encourage recruiting prisoners as any 'ready to recruit' prisoners will NOT be counted to the stack size -->
+
+	<!-- Multiplier for the speed bonus that foot troops get with riding horses in party inventory -->
+	<MountedFootmenSpeedMultiplier>1.8</MountedFootmenSpeedMultiplier> <!-- Native value is 1.0. Set to 2.0 for speed equal to cavalry -->
 </Config>
