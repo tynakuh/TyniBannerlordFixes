@@ -19,5 +19,7 @@ namespace TyniBannerlordFixes
         public bool ScaleByReadyToRecruit { get; set; }
         public bool ScaleByReadyToUpgrade { get; set; }
         public float MountedFootmenSpeedMultiplier { get; set; }
+        public float PlayerEquipmentTradePenaltyMultiplier { get; set; }
+        public float PlayerTroopUpgradeCostMultiplier { get; set; }
     }
 }
