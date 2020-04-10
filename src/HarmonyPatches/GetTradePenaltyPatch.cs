@@ -12,7 +12,7 @@ namespace TyniBannerlordFixes
     {
         static void Postfix(DefaultTradeItemPriceFactorModel __instance, ItemObject item, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStore, float supply, float demand, ref float __result)
         {
-            if (clientParty != null && clientParty.LeaderHero == Hero.MainHero && !item.IsTradeGood)
+            if (clientParty != null && clientParty.LeaderHero == Hero.MainHero && !item.IsTradeGood && !item.IsAnimal)
             {
                 __result *= ConfigLoader.Instance.Config.PlayerEquipmentTradePenaltyMultiplier;
             }
