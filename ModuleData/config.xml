@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Config>
+	<!-- Note that all configurations apply to ALL parties (AI, Player etc.) Unless specified otherwise -->
+	
 	<!-- Daily Experience -->	
 	<!-- XP given per day to each unit for Combat Tips -->
 	<CombatTipsXpAmount>30</CombatTipsXpAmount> <!-- Native value is 10 -->
@@ -36,7 +38,7 @@
 	<MountedFootmenSpeedMultiplier>1.8</MountedFootmenSpeedMultiplier> <!-- Native value is 1.0. Set to 2.0 for speed equal to cavalry -->
 
 	<!-- Multiplier for the trade penalty on equipment that the player sells to others. Does not affect trade goods or AI lords -->
-	<PlayerEquipmentTradePenaltyMultiplier>2.0</PlayerEquipmentTradePenaltyMultiplier> <!-- Native value is 1.0. Set to 2.0 for roughly halved equipment selling prices for the player -->
+	<PlayerEquipmentTradePenaltyMultiplier>1.0</PlayerEquipmentTradePenaltyMultiplier> <!-- Native value is 1.0. Set to 2.0 for roughly halved equipment selling prices for the player -->
 	<!-- Multiplier for the cost of upgrading troops, for the player only -->
-	<PlayerTroopUpgradeCostMultiplier>5.0</PlayerTroopUpgradeCostMultiplier> <!-- Native value is 1.0. Higher means more expensive troop upgrade costs -->
+	<PlayerTroopUpgradeCostMultiplier>1.0</PlayerTroopUpgradeCostMultiplier> <!-- Native value is 1.0. Higher means more expensive troop upgrade costs -->
 </Config>
