@@ -1,8 +1,6 @@
 ﻿using TaleWorlds.CampaignSystem;
 using System;
 using TaleWorlds.Core;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using MountAndBlade.CampaignBehaviors;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 

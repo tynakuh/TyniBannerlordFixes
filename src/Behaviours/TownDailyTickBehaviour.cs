@@ -1,7 +1,5 @@
 ﻿using TaleWorlds.CampaignSystem;
 using System;
-using TaleWorlds.Localization;
-using TaleWorlds.Core;
 
 namespace TyniBannerlordFixes
 {

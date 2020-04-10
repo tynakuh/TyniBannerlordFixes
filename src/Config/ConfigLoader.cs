@@ -2,7 +2,6 @@
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using TaleWorlds.Core;
 using TaleWorlds.Library;
 
 namespace TyniBannerlordFixes
@@ -43,10 +42,8 @@ namespace TyniBannerlordFixes
             }
             catch(Exception e)
             {
-                MessageBox.Show("Failed to load config, using default native values due to: " + Utils.FlattenException(e));
+                MessageBox.Show("Failed to load config due to: " + Utils.FlattenException(e));
                 Config config = new Config();
-                config.RaiseTheMeekXpAmount = 30;
-                config.CombatTipsXpAmount = 10;
                 return config;
             }
         }

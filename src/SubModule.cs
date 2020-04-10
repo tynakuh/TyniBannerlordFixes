@@ -3,7 +3,6 @@ using TaleWorlds.MountAndBlade;
 using TaleWorlds.CampaignSystem;
 using System.Windows.Forms;
 using System;
-using System.Text;
 using HarmonyLib;
 
 namespace TyniBannerlordFixes

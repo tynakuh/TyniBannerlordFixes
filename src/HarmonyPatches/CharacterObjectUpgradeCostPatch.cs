@@ -1,8 +1,7 @@
-﻿using HarmonyLib;
-using System.Windows;
+﻿using System;
+using HarmonyLib;
+using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents;
-using TaleWorlds.Core;
 
 namespace TyniBannerlordFixes
 {
@@ -20,6 +19,14 @@ namespace TyniBannerlordFixes
         static bool Prepare()
         {
             return ConfigLoader.Instance.Config.PlayerTroopUpgradeCostMultiplier != 1.0f; 
+        }
+        
+        static void Finalizer(Exception __exception)
+        {
+            if (__exception != null)
+            {
+                MessageBox.Show(Utils.FlattenException(__exception));
+            }
         }
     }
 }

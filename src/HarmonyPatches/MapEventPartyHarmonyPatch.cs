@@ -1,9 +1,5 @@
 ﻿using HarmonyLib;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TaleWorlds.CampaignSystem;
 
@@ -12,6 +8,7 @@ namespace TyniBannerlordFixes
     [HarmonyPatch(typeof(MapEventParty), "CommitXpGain")]
     public class MapEventPartyHarmonyPatch
     {
+
         static bool Prefix(MapEventParty __instance)
         {
             foreach (FlattenedTroopRosterElement item in new FlattenedTroopRoster(__instance.Troops))
