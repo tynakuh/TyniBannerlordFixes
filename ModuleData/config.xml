@@ -34,4 +34,9 @@
 
 	<!-- Multiplier for the speed bonus that foot troops get with riding horses in party inventory -->
 	<MountedFootmenSpeedMultiplier>1.8</MountedFootmenSpeedMultiplier> <!-- Native value is 1.0. Set to 2.0 for speed equal to cavalry -->
+
+	<!-- Multiplier for the trade penalty on equipment that the player sells to others. Does not affect trade goods or AI lords -->
+	<PlayerEquipmentTradePenaltyMultiplier>2.0</PlayerEquipmentTradePenaltyMultiplier> <!-- Native value is 1.0. Set to 2.0 for roughly halved equipment selling prices for the player -->
+	<!-- Multiplier for the cost of upgrading troops, for the player only -->
+	<PlayerTroopUpgradeCostMultiplier>5.0</PlayerTroopUpgradeCostMultiplier> <!-- Native value is 1.0. Higher means more expensive troop upgrade costs -->
 </Config>
