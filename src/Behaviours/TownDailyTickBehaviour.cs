@@ -19,32 +19,32 @@ namespace TyniBannerlordFixes
         private void addXpToGarrison(Settlement settle)
         {
             var town = settle.Town;
+            if (town == null)
+                return;
 
-            if (town != null)
+            if (town.GarrisonChange > 1 && (town.GarrisonParty == null || !town.GarrisonParty.IsActive))
             {
-                if (town.GarrisonChange > 1 && (town.GarrisonParty == null || !town.GarrisonParty.IsActive))
+                town.Owner.Settlement.AddGarrisonParty();
+            }
+            if (town.GarrisonParty != null && town.GarrisonParty.IsActive && town.GarrisonParty.MapEvent == null && town.GarrisonParty.CurrentSettlement != null)
+            {
+                int bonusXp = Campaign.Current.Models.DailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
+                float xpMultiplier = Campaign.Current.Models.DailyTroopXpBonusModel.CalculateGarrisonXpBonusMultiplier(town);
+                if (bonusXp > 0)
                 {
-                    town.Owner.Settlement.AddGarrisonParty();
-                }
-                if (town.GarrisonParty != null && town.GarrisonParty.IsActive && town.GarrisonParty.MapEvent == null && town.GarrisonParty.CurrentSettlement != null)
-                {
-                    int bonusXp = Campaign.Current.Models.DailyTroopXpBonusModel.CalculateDailyTroopXpBonus(town);
-                    float xpMultiplier = Campaign.Current.Models.DailyTroopXpBonusModel.CalculateGarrisonXpBonusMultiplier(town);
-                    if (bonusXp > 0)
+                    for (int i = 0; i < town.GarrisonParty.MemberRoster.Count; i++)
                     {
-                        for (int i = 0; i < town.GarrisonParty.MemberRoster.Count; i++)
-                        {
-                            TroopRosterElement troopElement = town.GarrisonParty.MemberRoster.GetElementCopyAtIndex(i);
-                            int totalTroopXp = TaleWorlds.Library.MathF.Round((float) (bonusXp * 
-                                                                                       xpMultiplier * 
-                                                                                       troopElement.Number * 
-                                                                                       ConfigLoader.Instance.Config.GarrisonTrainingXpMultiplier) - (bonusXp * xpMultiplier));
+                        TroopRosterElement troopElement = town.GarrisonParty.MemberRoster.GetElementCopyAtIndex(i);
+                        int totalTroopXp = TaleWorlds.Library.MathF.Round((float) (bonusXp * 
+                                                                                    xpMultiplier * 
+                                                                                    troopElement.Number * 
+                                                                                    ConfigLoader.Instance.Config.GarrisonTrainingXpMultiplier) - (bonusXp * xpMultiplier));
 
-                            town.GarrisonParty.MemberRoster.AddXpToTroopAtIndex(totalTroopXp, i);
-                        }
+                        town.GarrisonParty.MemberRoster.AddXpToTroopAtIndex(totalTroopXp, i);
                     }
                 }
             }
+            
 		}
     }
 }
