@@ -22,6 +22,9 @@ namespace TyniBannerlordFixes
             bool hasCombatTips = party.HasPerk(DefaultPerks.Leadership.CombatTips);
             bool hasRaiseTheMeek = party.HasPerk(DefaultPerks.Leadership.RaiseTheMeek);
 
+            if (!hasCombatTips && !hasRaiseTheMeek)
+                return;
+
             for (int i = 0; i < party.MemberRoster.Count; i++)
             {
                 TroopRosterElement troopElement = party.MemberRoster.GetElementCopyAtIndex(i);
