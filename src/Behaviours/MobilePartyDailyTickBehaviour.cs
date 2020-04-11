@@ -16,49 +16,48 @@ namespace TyniBannerlordFixes
 
         private void addXp(MobileParty party)
         {
-            Boolean hasBoth = false;
-            if (party.IsActive && party.HasPerk(DefaultPerks.Leadership.CombatTips) && party.HasPerk(DefaultPerks.Leadership.CombatTips))
-            {
-                hasBoth = true;
-            }
-            if (party.IsActive && party.HasPerk(DefaultPerks.Leadership.CombatTips))
-            {
-                for (int i = 0; i < party.MemberRoster.Count; i++)
-                {
-                    TroopRosterElement troopElement = party.MemberRoster.GetElementCopyAtIndex(i);
-                    int troopMultiplier = troopElement.Number;
-                    if(ConfigLoader.Instance.Config.ScaleByReadyToUpgrade)
-                    {
-                        troopMultiplier -= troopElement.NumberReadyToUpgrade;
-                    }
-                    int totalTroopXp = ConfigLoader.Instance.Config.CombatTipsXpAmount * troopMultiplier;
+            if (!party.IsActive)
+                return;
 
-                    //Remove the default added xp
+            bool hasCombatTips = party.HasPerk(DefaultPerks.Leadership.CombatTips);
+            bool hasRaiseTheMeek = party.HasPerk(DefaultPerks.Leadership.RaiseTheMeek);
+
+            for (int i = 0; i < party.MemberRoster.Count; i++)
+            {
+                TroopRosterElement troopElement = party.MemberRoster.GetElementCopyAtIndex(i);
+                int troopMultiplier = troopElement.Number;
+                int totalTroopXp = 0;
+
+                // If we scaleByReadyToUpgrade, ignore the amount of units ready to upgrade
+                if (ConfigLoader.Instance.Config.ScaleByReadyToUpgrade)
+                {
+                    troopMultiplier -= troopElement.NumberReadyToUpgrade;
+                }
+
+                if (hasCombatTips)
+                {
+                    // Add combatTips xp
+                    totalTroopXp += ConfigLoader.Instance.Config.CombatTipsXpAmount * troopMultiplier;
+
+                    // Remove the default added xp
                     totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.CombatTips);
-
-                    party.Party.MemberRoster.AddXpToTroopAtIndex(totalTroopXp, i);
-
                 }
-            }
-            if (party.IsActive && party.HasPerk(DefaultPerks.Leadership.RaiseTheMeek))
-            {
-                for (int i = 0; i < party.MemberRoster.Count; i++)
+
+                if (hasRaiseTheMeek && troopElement.Character.Tier < 4)
                 {
-                    TroopRosterElement troopElement2 = party.MemberRoster.GetElementCopyAtIndex(i);
-                    if (troopElement2.Character.Tier < 4)
-                    {
-                        int defaultSingleTroopPerksXp2 = Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.RaiseTheMeek);
-                        int totalTroopXp2 = ConfigLoader.Instance.Config.RaiseTheMeekXpAmount * troopElement2.Number;
-                        if (!hasBoth)
-                        {
-                            //Remove the default added xp only if we haven't removed it for CombatTips, native doesn't support both
-                            //even if its technically possible as party can have multiple leaders. It only applies CombatTips instead.
-                            totalTroopXp2 -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.RaiseTheMeek);
-                        }
-                        party.Party.MemberRoster.AddXpToTroopAtIndex(totalTroopXp2, i);
-                    }
+                    // Add raiseTheMeek xp
+                    totalTroopXp += ConfigLoader.Instance.Config.RaiseTheMeekXpAmount * troopMultiplier;
 
+                    // Remove the default added xp only if we haven't removed it for CombatTips, native doesn't support both
+                    // even if its technically possible as party can have multiple leaders. It only applies CombatTips instead.
+                    if (!hasCombatTips)
+                    {
+                        totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.RaiseTheMeek);
+                    }
                 }
+
+                // Add xp to the troop
+                party.Party.MemberRoster.AddXpToTroopAtIndex(totalTroopXp, i);
             }
         }
     }
