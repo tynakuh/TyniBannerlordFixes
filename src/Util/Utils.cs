@@ -3,9 +3,9 @@ using System.Text;
 
 namespace TyniBannerlordFixes
 {
-    class Utils
+    public static class Utils
     {		
-		public static string FlattenException(Exception exception)
+		public static string FlattenException(this Exception exception)
 		{
 			var stringBuilder = new StringBuilder();
 

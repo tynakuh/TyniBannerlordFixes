@@ -42,7 +42,7 @@ namespace TyniBannerlordFixes
             }
             catch(Exception e)
             {
-                MessageBox.Show("Failed to load config due to: " + Utils.FlattenException(e));
+                MessageBox.Show("Failed to load config due to: " + e.FlattenException());
                 Config config = new Config();
                 return config;
             }

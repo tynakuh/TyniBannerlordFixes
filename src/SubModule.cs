@@ -19,7 +19,7 @@ namespace TyniBannerlordFixes
 			}
 			catch (Exception e)
 			{
-				MessageBox.Show("Couldn't apply Harmony due to: " + Utils.FlattenException(e));
+				MessageBox.Show("Couldn't apply Harmony due to: " + e.FlattenException());
 			}
 		}
 
@@ -32,7 +32,7 @@ namespace TyniBannerlordFixes
 			}
 			catch(Exception e)
 			{
-				MessageBox.Show(Utils.FlattenException(e));
+				MessageBox.Show(e.FlattenException());
 			}
 		}
 

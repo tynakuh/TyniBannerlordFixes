@@ -8,7 +8,6 @@ namespace TyniBannerlordFixes
         public override void RegisterEvents()
         {
             //Strangely DailyTickTownEvent (Even if Castles are Towns) does not include Castles, only actual Towns.
-            //So we will have to take the settlement event and cast it.
             CampaignEvents.DailyTickSettlementEvent.AddNonSerializedListener(this, new Action<Settlement>(this.addXpToGarrison));
         }
 

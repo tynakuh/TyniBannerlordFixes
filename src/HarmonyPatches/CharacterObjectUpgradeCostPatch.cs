@@ -8,7 +8,7 @@ namespace TyniBannerlordFixes
     [HarmonyPatch(typeof(CharacterObject), "UpgradeCost")]
     public class CharacterObjectUpgradeCostPatch
     {
-        static void Postfix(CharacterObject __instance, PartyBase party, int index, ref int __result)
+        static void Postfix(PartyBase party, int index, ref int __result)
         {
             if (party != null && party.LeaderHero == Hero.MainHero)
             {
@@ -25,7 +25,7 @@ namespace TyniBannerlordFixes
         {
             if (__exception != null)
             {
-                MessageBox.Show(Utils.FlattenException(__exception));
+                MessageBox.Show(__exception.FlattenException());
             }
         }
     }

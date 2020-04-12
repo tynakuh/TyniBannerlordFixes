@@ -4,18 +4,18 @@
 	
 	<!-- Daily Experience -->	
 	<!-- XP given per day to each unit for Combat Tips -->
-	<CombatTipsXpAmount>30</CombatTipsXpAmount> <!-- Native value is 10 -->
+	<CombatTipsXpAmount>30</CombatTipsXpAmount> <!-- Native value is 15 -->
 	<!-- XP given per day to each unit for Raise The Meek -->
-	<RaiseTheMeekXpAmount>90</RaiseTheMeekXpAmount> <!-- Native value is 30 -->
-	<!-- If true, XP for any ready to upgrade troops is NOT given to the stack -->
-	<ScaleByReadyToUpgrade>false</ScaleByReadyToUpgrade>
+	<RaiseTheMeekXpAmount>60</RaiseTheMeekXpAmount> <!-- Native value is 30 -->
+	<!-- If true, XP for any ready to upgrade troops is NOT given to the stack (Applies to both Combat and Perks) -->
+	<ScaleByReadyToUpgrade>false</ScaleByReadyToUpgrade> <!-- This being true will encourage upgrading troops -->
 	<!-- Multiplier for amount of troop xp given by training fields, stacks ontop of Drill Master, i.e 4 * 1.2 * 2.0 = 10 per day (gets rounded) -->
 	<GarrisonTrainingXpMultiplier>2.0</GarrisonTrainingXpMultiplier> 
 	
 	<!-- Daily Prisoner Recruitment -->
 	
 	<!-- Determines the probability of recruitment by tier range is 0-1 (0%-100%) -->
-	<DailyRecruitmentProbabilitiesByTier>1.0,0.5,0.3,0.2,0.1,0.0</DailyRecruitmentProbabilitiesByTier> <!-- These are native values -->
+	<DailyRecruitmentProbabilitiesByTier>1.0,0.5,0.3,0.2,0.1,0.01</DailyRecruitmentProbabilitiesByTier> <!-- Native values are 0.5,0.3,0.2,0.1 -->
 	<!-- Each time you get a 'successful' recruit, the probability is lowered by this amount -->
 	<DailyRecruitmentProbabilitiesByTierDecay>0.3,0.2,0.15,0.1,0.05,1.0</DailyRecruitmentProbabilitiesByTierDecay> <!-- Native values are all 1.0 -->
 	

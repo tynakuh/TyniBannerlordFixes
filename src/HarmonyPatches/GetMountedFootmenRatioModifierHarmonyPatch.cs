@@ -21,7 +21,7 @@ namespace TyniBannerlordFixes
         {
             if (__exception != null)
             {
-                MessageBox.Show(Utils.FlattenException(__exception));
+                MessageBox.Show(__exception.FlattenException());
             }
         }
     }
