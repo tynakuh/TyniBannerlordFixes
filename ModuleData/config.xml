@@ -4,9 +4,9 @@
 	
 	<!-- Daily Experience -->	
 	<!-- XP given per day to each unit for Combat Tips -->
-	<CombatTipsXpAmount>30</CombatTipsXpAmount> <!-- Native value is 15 -->
+	<CombatTipsXpAmount>20</CombatTipsXpAmount> <!-- Native value is 15 -->
 	<!-- XP given per day to each unit for Raise The Meek -->
-	<RaiseTheMeekXpAmount>60</RaiseTheMeekXpAmount> <!-- Native value is 30 -->
+	<RaiseTheMeekXpAmount>45</RaiseTheMeekXpAmount> <!-- Native value is 30 -->
 	<!-- If true, XP for any ready to upgrade troops is NOT given to the stack (Applies to both Combat and Perks) -->
 	<ScaleByReadyToUpgrade>false</ScaleByReadyToUpgrade> <!-- This being true will encourage upgrading troops -->
 	<!-- Multiplier for amount of troop xp given by training fields, stacks ontop of Drill Master, i.e 4 * 1.2 * 2.0 = 10 per day (gets rounded) -->
@@ -15,9 +15,9 @@
 	<!-- Daily Prisoner Recruitment -->
 	
 	<!-- Determines the probability of recruitment by tier range is 0-1 (0%-100%) -->
-	<DailyRecruitmentProbabilitiesByTier>1.0,0.5,0.3,0.2,0.1,0.01</DailyRecruitmentProbabilitiesByTier> <!-- Native values are 0.5,0.3,0.2,0.1 -->
+	<DailyRecruitmentProbabilitiesByTier>0.5,0.25,0.15,0.1,0.05,0.01</DailyRecruitmentProbabilitiesByTier> <!-- Native values are 0.5,0.3,0.2,0.1 -->
 	<!-- Each time you get a 'successful' recruit, the probability is lowered by this amount -->
-	<DailyRecruitmentProbabilitiesByTierDecay>0.3,0.2,0.15,0.1,0.05,1.0</DailyRecruitmentProbabilitiesByTierDecay> <!-- Native values are all 1.0 -->
+	<DailyRecruitmentProbabilitiesByTierDecay>0.3,0.15,0.10,0.05,0.025,1.0</DailyRecruitmentProbabilitiesByTierDecay> <!-- Native values are all 1.0 -->
 	
 	<!-- With default values above, this means a max of the following per day, with more units in the stack improving probabilties of hitting this max:
 		 Tier 1:  4 max.
@@ -41,4 +41,6 @@
 	<PlayerEquipmentTradePenaltyMultiplier>1.0</PlayerEquipmentTradePenaltyMultiplier> <!-- Native value is 1.0. Set to 2.0 for roughly halved equipment selling prices for the player -->
 	<!-- Multiplier for the cost of upgrading troops, for the player only -->
 	<PlayerTroopUpgradeCostMultiplier>1.0</PlayerTroopUpgradeCostMultiplier> <!-- Native value is 1.0. Higher means more expensive troop upgrade costs -->
+	<!-- Multiplier for the cost of troop wages, applies to entire player clan, not to other AIs -->
+	<PlayerTroopWageMultiplier>1.0</PlayerTroopWageMultiplier> <!-- Native value is 1.0. Higher means more expensive troop wage costs for the clan -->
 </Config>

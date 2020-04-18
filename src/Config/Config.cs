@@ -21,5 +21,6 @@ namespace TyniBannerlordFixes
         public float MountedFootmenSpeedMultiplier { get; set; }
         public float PlayerEquipmentTradePenaltyMultiplier { get; set; }
         public float PlayerTroopUpgradeCostMultiplier { get; set; }
+        public float PlayerTroopWageMultiplier { get; set; }
     }
 }
