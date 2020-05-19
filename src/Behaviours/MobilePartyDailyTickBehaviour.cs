@@ -43,7 +43,7 @@ namespace TyniBannerlordFixes
                     totalTroopXp += ConfigLoader.Instance.Config.CombatTipsXpAmount * troopMultiplier;
 
                     // Remove the default added xp
-                    totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.CombatTips);
+                    totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetPerkExperiencesForTroops(DefaultPerks.Leadership.CombatTips);
                 }
 
                 if (hasRaiseTheMeek && troopElement.Character.Tier < 4)
@@ -55,7 +55,7 @@ namespace TyniBannerlordFixes
                     // even if its technically possible as party can have multiple leaders. It only applies CombatTips instead.
                     if (!hasCombatTips)
                     {
-                        totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetTroopPerksXp(DefaultPerks.Leadership.RaiseTheMeek);
+                        totalTroopXp -= Campaign.Current.Models.PartyTrainingModel.GetPerkExperiencesForTroops(DefaultPerks.Leadership.RaiseTheMeek);
                     }
                 }
 
